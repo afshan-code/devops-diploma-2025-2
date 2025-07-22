@@ -1,0 +1,61 @@
+import streamlit as st
+import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report, accuracy_score
+import pandas as pd
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+import plotly.express as px
+import plotly.graph_objects as go
+
+# ---------- Load Saved Results ---------- #
+loaded_data2 = joblib.load("ml2_results.pkl")
+df2 = loaded_data2["df2"]
+accuracy_score = loaded_data["accuracy_score"]
+X_test = loaded_data["X_test"]
+Y_test = loaded_data["Y_test"]
+
+# Step 1: Sentiment distribution pie chart
+sentiment_counts = df2['Sentiment'].value_counts()
+
+def plot_pie_chart():
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.pie(
+        sentiment_counts,
+        labels=sentiment_counts.index,
+        autopct='%1.1f%%',
+        startangle=140,
+        colors=['lightblue', 'lightgreen', 'lightcoral']
+    )
+    ax.set_title('Sentiment Distribution')
+    ax.axis('equal')
+    return fig
+
+# Step 2: Calculate accuracy
+predicted = MNB.predict(X_test)
+acc_score = accuracy_score(Y_test, predicted)
+
+# Step 3: Get classification report as text
+cf_report = classification_report(Y_test, predicted)
+
+# --- Streamlit app ---
+st.title("Sentiment Analysis Dashboard")
+
+# Show pie chart
+st.subheader("Sentiment Distribution")
+st.pyplot(plot_pie_chart())
+
+# Box with model info and accuracy
+st.subheader("Model Performance")
+st.markdown("""
+<div style='border:2px solid #4CAF50; padding: 15px; width: 300px; border-radius: 5px;'>
+  <h4 style='margin-bottom: 5px;'>Multinomial Naive Bayes Classifier</h4>
+  <p style='margin: 0; font-weight: bold;'>Accuracy</p>
+  <p style='margin: 0; font-size: 1.2em;'>{:.2f}</p>
+</div>
+""".format(acc_score), unsafe_allow_html=True)
+
+# Classification report display
+st.subheader("Classification Report")
+st.text(cf_report)
