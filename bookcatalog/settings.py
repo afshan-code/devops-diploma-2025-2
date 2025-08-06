@@ -11,9 +11,15 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-
+from environs import env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEVELOPMENT_MODE = env.bool("DEVELOPMENT_MODE",True)
+DATABASE_NAME = env.str("DATABASE_NAME","")
+DATABASE_USER = env.str("DATABASE_USER","")
+DATABASE_PASSWORD = env.str("DATABASE_PASSWORD","")
+DATABASE_HOST = env.str("DATABASE_HOST","")
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +31,8 @@ SECRET_KEY = 'django-insecure-x@10axf3k%nrfec^ee&=a91dq%!t-ac_0h#7^rix@7owatjfm&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -75,13 +82,27 @@ WSGI_APPLICATION = 'bookcatalog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+if DEVELOPMENT_MODE:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DATABASE_NAME,
+        'USER' : DATABASE_USER,
+        'PASSWORD' : DATABASE_PASSWORD,
+        'HOST' : DATABASE_HOST,
+        'PORT' : '5432',
+    }
+
+
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

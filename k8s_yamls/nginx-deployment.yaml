@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx-servers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: nginx-server
+  template:
+    metadata:
+      labels:
+        service: nginx-server
+    spec:
+      containers:
+      - image: nginxdemos/hello
+        name: nginx-container
+        volumeMounts:
+          - name: pvc-volume
+            mountPath: /cache 
+      volumes: 
+        - name: pvc-volume
+          persistentVolumeClaim:
+            claimName: my-volume
