@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.1...v1.0.2) (2025-08-06)
+
+### Bug Fixes
+
+* use PAT for GHCR docker login ([b3e1f54](https://github.com/afshan-code/devops-diploma-2025-2/commit/b3e1f54ca8687bc9c77232251799c0028e5a97b9))
+
 ## [1.0.1](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.0...v1.0.1) (2025-08-06)
 
 ### Bug Fixes
