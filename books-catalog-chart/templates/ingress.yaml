@@ -11,12 +11,11 @@ metadata:
 spec:
   rules:
     - http:
-      paths:
-        - path: /api
-          pathType: Prefix
-          backend:
-            service:
-              name: {{ include "books-catalog-chart.fullname" . }}
-              port:
-                number:80
-  
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "books-catalog-chart.fullname" . }}
+                port:
+                  number: 80
