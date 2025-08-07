@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.1.1...v1.1.2) (2025-08-07)
+
+### Bug Fixes
+
+* correct values.yaml path for deploy action ([6545e6e](https://github.com/afshan-code/devops-diploma-2025-2/commit/6545e6e234c10203a1a63b1ddec39ee05e130d44))
+
 ## [1.1.1](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.1.0...v1.1.1) (2025-08-07)
 
 ### Bug Fixes
