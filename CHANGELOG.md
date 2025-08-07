@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.2...v1.0.3) (2025-08-07)
+
+### Bug Fixes
+
+* correct ingress indentation to resolve ArgoCD sync ([81c16f8](https://github.com/afshan-code/devops-diploma-2025-2/commit/81c16f8ca9a6bc855075a5cb8f8211418a6bf2ec))
+
 ## [1.0.2](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.1...v1.0.2) (2025-08-06)
 
 ### Bug Fixes
