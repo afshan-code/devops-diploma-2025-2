@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.3...v1.1.0) (2025-08-07)
+
+### Features
+
+* Adding new very important endpoint ([5a0ed27](https://github.com/afshan-code/devops-diploma-2025-2/commit/5a0ed2764a9185bfbc2ca6687ae34ddfeb6321ed))
+
 ## [1.0.3](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.2...v1.0.3) (2025-08-07)
 
 ### Bug Fixes
