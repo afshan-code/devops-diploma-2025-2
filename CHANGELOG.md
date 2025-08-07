@@ -1,3 +1,14 @@
+## [1.2.0](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.1.2...v1.2.0) (2025-08-07)
+
+### Features
+
+* add entrypoint script and fix Dockerfile for container startup ([0f6ecb2](https://github.com/afshan-code/devops-diploma-2025-2/commit/0f6ecb2b210a09e2d80819c7085f326f20d0585f))
+
+### Bug Fixes
+
+* correct environment variables syntax in docker-compose.yml ([1ca690a](https://github.com/afshan-code/devops-diploma-2025-2/commit/1ca690a3f0d646f4eccacd4e045745883a361811))
+* update settings.py for environment config ([9a5734a](https://github.com/afshan-code/devops-diploma-2025-2/commit/9a5734ac132d4adc95a4acd3cb86aad675696d49))
+
 ## [1.1.2](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.1.1...v1.1.2) (2025-08-07)
 
 ### Bug Fixes
