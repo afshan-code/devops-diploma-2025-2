@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.1.0...v1.1.1) (2025-08-07)
+
+### Bug Fixes
+
+* correct line endings and formatting in values.yaml [skip ci] ([0c84313](https://github.com/afshan-code/devops-diploma-2025-2/commit/0c84313ee020fbb0e7d9347f0041ab1e603089d8))
+
 ## [1.1.0](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.0.3...v1.1.0) (2025-08-07)
 
 ### Features
