@@ -1,4 +1,4 @@
-# cct-devops-diploma-2025-template
+# cct-devops-diploma-2025-project
 
 ## Book Catalog API
 
@@ -148,7 +148,7 @@ Commit and push back to Git repo.
 GitOps tool (e.g., ArgoCD) detects change and deploys to Kubernetes.
 
 ## Kubernetes and Helm Setup Instructions 
-# Helm Chart Location
+### Helm Chart Location
 Located in books-catalog-chart/ directory.
 
 Includes:
