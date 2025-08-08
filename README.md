@@ -121,3 +121,28 @@ or use another port if needed
 python3 manage.py runserver 8001
 Access the API at:
 http://127.0.0.1:8000/api/
+
+## CI/CD Pipeline Explanation (GitHub Actions)
+Trigger: On push to main or pull requests.
+
+Install Dependencies: Sets up Python and installs requirements.
+
+Run Tests:
+
+Check migrations.
+
+Run tests with pytest.
+
+Docker Build & Push (on main branch):
+
+Build Docker image tagged with commit SHA/version.
+
+Push to container registry (GitHub Container Registry/Docker Hub).
+
+Helm Chart Update (GitOps):
+
+Update values.yaml with new Docker image tag.
+
+Commit and push back to Git repo.
+
+GitOps tool (e.g., ArgoCD) detects change and deploys to Kubernetes.
