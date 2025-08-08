@@ -35,6 +35,7 @@ class BookAPITestCase(APITestCase):
         }
         # ... rest of the method
 
+
     def test_update_book(self):
         """Test that a book can be updated via PUT request."""
         updated_data = {
@@ -42,7 +43,7 @@ class BookAPITestCase(APITestCase):
             "author": "Updated Author",
             "isbn": self.book.isbn,
             # Convert date object to a string for the request
-            "published_date": str(self.book.published_date)
+            "published_date": self.book.published_date.strftime('%Y-%m-%d')
         }
         response = self.client.put(self.book_detail_url, updated_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
