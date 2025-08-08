@@ -6,7 +6,7 @@ This project provides a simple RESTful API for managing a catalog of books, buil
 
 ---
 
-## Project Overview 📚
+## Project Overview 
 
 The Book Catalog API allows users to perform standard CRUD (Create, Read, Update, Delete) operations on book records. Each book has the following attributes:
 
@@ -148,22 +148,48 @@ Commit and push back to Git repo.
 GitOps tool (e.g., ArgoCD) detects change and deploys to Kubernetes.
 
 ## Kubernetes and Helm Setup Instructions 
+
 ### Helm Chart Location
-Located in books-catalog-chart/ directory.
 
-Includes:
+- Located in `books-catalog-chart/` directory.  
+- Includes:  
+  - `Chart.yaml` (metadata)  
+  - `values.yaml` (config, updated automatically by CI/CD)  
+  - `templates/` (Kubernetes manifests)
 
-Chart.yaml (metadata)
+---
 
-values.yaml (config, updated by CI/CD)
+### Deployment Process (GitOps with ArgoCD)
 
-templates/ (K8s manifests)
+This project uses **ArgoCD** for continuous delivery to Kubernetes, following the GitOps pattern.
 
-### Deployment Process (GitOps Flow)
-Developer pushes code.
+1. Code Changes and CI/CD:
+   - Developer pushes changes to the `main` branch.
+   - GitHub Actions pipeline runs:
+     - Runs all tests.
+     - Builds and pushes a new Docker image to the container registry.
+     - Updates the `values.yaml` file in the Helm chart with the new Docker image tag.
+     - Commits and pushes the updated `values.yaml` to the same repository.
 
-CI/CD builds/tests and pushes Docker image.
+2. ArgoCD Sync:
+   - ArgoCD is configured to watch the `main` branch of this repository, specifically the `books-catalog-chart/` directory.
+   - When it detects a commit that changes `values.yaml`, it:
+     - Pulls the latest version of the Helm chart from Git.
+     - Renders Kubernetes manifests using the updated `image.tag`.
+     - Applies the manifests to the Kubernetes cluster.
 
-CI/CD updates values.yaml with new image tag and commits.
+3. Automatic Deployment:
+   - No manual `kubectl apply` or `helm install` commands are needed.
+   - The new version of the Book Catalog API is deployed automatically.
+   - ArgoCD UI shows the sync status and any differences between Git and the cluster.
 
-ArgoCD (or similar) detects commit, applies updated Helm chart to Kubernetes.
+4. Accessing the Application:
+   - The application is exposed via a Kubernetes Service (NodePort or LoadBalancer) or through Ingress, depending on your Helm chart configuration.
+   - You can check the external URL from the ArgoCD dashboard or by running:
+     ```bash
+     kubectl get svc
+     ```
+   - If using Ingress, access it via the configured domain name.
+
+---
+
