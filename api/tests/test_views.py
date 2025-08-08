@@ -1,3 +1,5 @@
+# api/tests/test_views.py
+
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -14,9 +16,11 @@ class BookAPITestCase(APITestCase):
             isbn="978-0-123456-78-9",
             published_date=date(2023, 1, 1)
         )
-        self.book_list_url = reverse('books-list')
-        self.book_detail_url = reverse('books-detail', args=[self.book.pk])
+        # Correct the URL reversing to use the 'api:' namespace
+        self.book_list_url = reverse('api:books-list')
+        self.book_detail_url = reverse('api:books-detail', args=[self.book.pk])
 
+    # ... rest of the test methods
     def test_create_book(self):
         """Test that a book can be created via POST request."""
         data = {
