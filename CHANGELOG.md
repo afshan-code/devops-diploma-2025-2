@@ -1,3 +1,20 @@
+## [1.3.0](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.2.0...v1.3.0) (2025-08-08)
+
+### Features
+
+* **api:** Add new migration for isbn and published_date fields ([6500488](https://github.com/afshan-code/devops-diploma-2025-2/commit/650048896917ad3be19d4b742e735da43b3f54cc))
+* **helm:** Add and configure Helm chart for deployment ([f37542e](https://github.com/afshan-code/devops-diploma-2025-2/commit/f37542e97d753b5d298831b72b45028277385671))
+
+### Bug Fixes
+
+* Add apply migrations ([7abc5e1](https://github.com/afshan-code/devops-diploma-2025-2/commit/7abc5e12b06d3f279ccb737377f03ff661e4b7ed))
+* Modify test views file ([a13c8e2](https://github.com/afshan-code/devops-diploma-2025-2/commit/a13c8e23695227e5f3e6ff95fa786f3750fc195f))
+* Modify test views for string and date format ([cc16745](https://github.com/afshan-code/devops-diploma-2025-2/commit/cc167452fff3ca670287a2ae2242f397ba197be9))
+* Modify test views for string format ([9b01a2f](https://github.com/afshan-code/devops-diploma-2025-2/commit/9b01a2f824bc9b7a92d1b3bea2c95869c08adbf1))
+* Modify test views for update book ([00f7e6c](https://github.com/afshan-code/devops-diploma-2025-2/commit/00f7e6cbbde6911ff3d8efb87ffd3a5f5e0b6c0b))
+* Modify test views for update book ([b9aef17](https://github.com/afshan-code/devops-diploma-2025-2/commit/b9aef17d1920798d2cce7bf886e1de0bbbf676f5))
+* Modify test views for update book again ([61d7705](https://github.com/afshan-code/devops-diploma-2025-2/commit/61d7705390d29dcab90a8a65949fb926c6d98507))
+
 ## [1.2.0](https://github.com/afshan-code/devops-diploma-2025-2/compare/v1.1.2...v1.2.0) (2025-08-07)
 
 ### Features
