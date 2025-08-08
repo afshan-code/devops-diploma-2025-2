@@ -148,7 +148,7 @@ Commit and push back to Git repo.
 GitOps tool (e.g., ArgoCD) detects change and deploys to Kubernetes.
 
 ## Kubernetes and Helm Setup Instructions 
-Helm Chart Location
+# Helm Chart Location
 Located in books-catalog-chart/ directory.
 
 Includes:
@@ -159,7 +159,7 @@ values.yaml (config, updated by CI/CD)
 
 templates/ (K8s manifests)
 
-Deployment Process (GitOps Flow)
+# Deployment Process (GitOps Flow)
 Developer pushes code.
 
 CI/CD builds/tests and pushes Docker image.
