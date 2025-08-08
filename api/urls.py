@@ -1,18 +1,13 @@
-from django.urls import re_path, include
-from .views import book_view, health_view, test_view
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import BookViewSet, HealthView
 
 app_name = 'api'
 
+router = DefaultRouter()
+router.register(r'books', BookViewSet, basename='books')
+
 urlpatterns = [
-    re_path(
-        r"^$", health_view, name='health'
-    ),
-    re_path(
-        r"^test/", test_view, name='test'
-    ),
-    re_path(
-        r"^books/", book_view, name='books'
-    )
+    path('health/', HealthView.as_view(), name='health'),
+    path('', include(router.urls)), # This includes all CRUD routes for books
 ]
-
-
