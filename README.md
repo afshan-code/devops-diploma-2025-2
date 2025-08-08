@@ -71,3 +71,19 @@ Example Response (200 OK):
   "created_at": "2023-01-01T12:00:00Z"
 }
 
+4. Update an Existing Book
+Update book details by ID:
+PUT /api/books/{id}/
+Content-Type: application/json
+
+Request body:
+
+{
+  "title": "The Great Gatsby (Revised)",
+  "author": "F. Scott Fitzgerald",
+  "isbn": "9780743273565",
+  "published_date": "1925-04-10"
+}
+Example Response (200 OK): Returns updated book object.
+
+
