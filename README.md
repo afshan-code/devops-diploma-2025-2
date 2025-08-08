@@ -27,7 +27,7 @@ The Book Catalog API allows users to perform standard CRUD (Create, Read, Update
 
 All API endpoints are prefixed with `/api/`. For example, running locally on port 8000, the base URL is `http://127.0.0.1:8000/api/`.
 
-### 1. Get All Books (List)  
+1. Get All Books (List)  
 Retrieve a list of all books:  
 `GET /api/books/`
 
@@ -43,3 +43,31 @@ Retrieve a list of all books:
     "created_at": "2023-01-01T12:00:00Z"
   }
 ]
+
+2. Create a New Book
+Add a new book:
+POST /api/books/
+Content-Type: application/json
+
+Request body:
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "isbn": "9780743273565",
+  "published_date": "1925-04-10"
+}
+
+3. Get a Single Book (Detail)
+Retrieve details for a book by ID:
+GET /api/books/{id}/
+
+Example Response (200 OK):
+{
+  "id": 1,
+  "title": "Test Book",
+  "author": "Test Author",
+  "isbn": "9781234567897",
+  "published_date": "2023-01-01",
+  "created_at": "2023-01-01T12:00:00Z"
+}
+
