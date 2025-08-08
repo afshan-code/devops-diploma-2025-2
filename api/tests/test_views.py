@@ -41,7 +41,7 @@ class BookAPITestCase(APITestCase):
         updated_data = {
             "title": "Updated Title",
             "author": "Updated Author",
-            "isbn": self.book.isbn,
+            "isbn": "978-9-876543-21-0",
             # Convert date object to a string for the request
             "published_date": self.book.published_date.strftime('%Y-%m-%d')
         }
@@ -49,6 +49,7 @@ class BookAPITestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.book.refresh_from_db()
         self.assertEqual(self.book.title, "Updated Title")
+        self.assertEqual(self.book.isbn, "978-9-876543-21-0")
 
     # ... rest of the test methods
 
