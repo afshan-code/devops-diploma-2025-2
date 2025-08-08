@@ -117,7 +117,7 @@ python3 manage.py migrate
 
 Run the development server:
 python3 manage.py runserver 8000
-#or use another port if needed
+or use another port if needed
 python3 manage.py runserver 8001
 Access the API at:
 http://127.0.0.1:8000/api/
