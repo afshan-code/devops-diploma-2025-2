@@ -31,8 +31,8 @@ All API endpoints are prefixed with `/api/`. For example, running locally on por
 Retrieve a list of all books:  
 `GET /api/books/`
 
-**Example Response (200 OK):**  
-```json
+Example Response (200 OK): 
+
 [
   {
     "id": 1,
