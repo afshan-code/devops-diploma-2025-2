@@ -29,10 +29,9 @@ All API endpoints are prefixed with `/api/`. For example, running locally on por
 
 1. Get All Books (List)  
 Retrieve a list of all books:  
-`GET /api/books/`
+GET /api/books/`
 
 Example Response (200 OK): 
-
 [
   {
     "id": 1,
@@ -77,7 +76,6 @@ PUT /api/books/{id}/
 Content-Type: application/json
 
 Request body:
-
 {
   "title": "The Great Gatsby (Revised)",
   "author": "F. Scott Fitzgerald",
@@ -86,4 +84,18 @@ Request body:
 }
 Example Response (200 OK): Returns updated book object.
 
+5. Delete a Book
+Remove a book by ID:
+DELETE /api/books/{id}/
+
+Example Response (204 No Content): No content returned.
+
+6. Health Check
+Check API health status:
+GET /api/health/
+
+Example Response (200 OK):
+{
+  "status": "ok"
+}
 
