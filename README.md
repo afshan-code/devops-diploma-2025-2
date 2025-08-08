@@ -159,7 +159,7 @@ values.yaml (config, updated by CI/CD)
 
 templates/ (K8s manifests)
 
-# Deployment Process (GitOps Flow)
+### Deployment Process (GitOps Flow)
 Developer pushes code.
 
 CI/CD builds/tests and pushes Docker image.
