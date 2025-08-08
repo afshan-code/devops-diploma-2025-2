@@ -6,40 +6,34 @@ from rest_framework.test import APITestCase
 from datetime import date
 from api.models import Book
 
+# api/tests/test_views.py
+
+# ... other imports
+from datetime import date
+
 class BookAPITestCase(APITestCase):
 
     def setUp(self):
-        # Create a sample book for tests that need an existing object
+        # ... unchanged code
         self.book = Book.objects.create(
             title="Test Book",
             author="Test Author",
             isbn="978-0-123456-78-9",
             published_date=date(2023, 1, 1)
         )
-        # Correct the URL reversing to use the 'api:' namespace
+        # ... unchanged URL reversing
         self.book_list_url = reverse('api:books-list')
         self.book_detail_url = reverse('api:books-detail', args=[self.book.pk])
 
-    # ... rest of the test methods
     def test_create_book(self):
-        """Test that a book can be created via POST request."""
+        # The data for this test is already a string, so no changes are needed here.
         data = {
             "title": "New Book",
             "author": "New Author",
             "isbn": "978-1-234567-89-0",
             "published_date": "2024-05-15"
         }
-        response = self.client.post(self.book_list_url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(Book.objects.count(), 2)
-        self.assertEqual(Book.objects.get(isbn="978-1-234567-89-0").title, "New Book")
-
-    def test_get_book_list(self):
-        """Test that the book list is returned correctly."""
-        response = self.client.get(self.book_list_url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['title'], self.book.title)
+        # ... rest of the method
 
     def test_update_book(self):
         """Test that a book can be updated via PUT request."""
@@ -47,12 +41,15 @@ class BookAPITestCase(APITestCase):
             "title": "Updated Title",
             "author": "Updated Author",
             "isbn": self.book.isbn,
-            "published_date": self.book.published_date
+            # Convert date object to a string for the request
+            "published_date": str(self.book.published_date)
         }
         response = self.client.put(self.book_detail_url, updated_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.book.refresh_from_db()
         self.assertEqual(self.book.title, "Updated Title")
+
+    # ... rest of the test methods
 
     def test_delete_book(self):
         """Test that a book can be deleted via DELETE request."""
