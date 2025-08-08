@@ -99,3 +99,25 @@ Example Response (200 OK):
   "status": "ok"
 }
 
+## Local Build and Run Instructions
+Clone the repository:
+git clone <your-repository-url>
+cd <your-repository-directory>
+
+Create and activate Python virtual environment:
+python3 -m venv .venv
+source .venv/bin/activate
+
+Install dependencies:
+pip install -r requirements.txt
+
+Apply migrations:
+python3 manage.py makemigrations api
+python3 manage.py migrate
+
+Run the development server:
+python3 manage.py runserver 8000
+#or use another port if needed
+python3 manage.py runserver 8001
+Access the API at:
+http://127.0.0.1:8000/api/
