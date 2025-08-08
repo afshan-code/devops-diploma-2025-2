@@ -18,7 +18,7 @@ class BookAPITestCase(APITestCase):
         self.book = Book.objects.create(
             title="Test Book",
             author="Test Author",
-            isbn="978-0-123456-78-9",
+            isbn="9781234567897",
             published_date=date(2023, 1, 1)
         )
         # ... unchanged URL reversing
@@ -30,7 +30,7 @@ class BookAPITestCase(APITestCase):
         data = {
             "title": "New Book",
             "author": "New Author",
-            "isbn": "978-1-234567-89-0",
+            "isbn": "9782345678901",
             "published_date": "2024-05-15"
         }
         # ... rest of the method
@@ -41,7 +41,7 @@ class BookAPITestCase(APITestCase):
         updated_data = {
             "title": "Updated Title",
             "author": "Updated Author",
-            "isbn": "978-9-876543-21-0",
+            "isbn": "9783456789012",
             # Convert date object to a string for the request
             "published_date": "2024-05-15"
         }
@@ -49,7 +49,7 @@ class BookAPITestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.book.refresh_from_db()
         self.assertEqual(self.book.title, "Updated Title")
-        self.assertEqual(self.book.isbn, "978-9-876543-21-0")
+        self.assertEqual(self.book.isbn, "9783456789012")
 
     # ... rest of the test methods
 
