@@ -146,3 +146,24 @@ Update values.yaml with new Docker image tag.
 Commit and push back to Git repo.
 
 GitOps tool (e.g., ArgoCD) detects change and deploys to Kubernetes.
+
+## Kubernetes and Helm Setup Instructions 
+Helm Chart Location
+Located in books-catalog-chart/ directory.
+
+Includes:
+
+Chart.yaml (metadata)
+
+values.yaml (config, updated by CI/CD)
+
+templates/ (K8s manifests)
+
+Deployment Process (GitOps Flow)
+Developer pushes code.
+
+CI/CD builds/tests and pushes Docker image.
+
+CI/CD updates values.yaml with new image tag and commits.
+
+ArgoCD (or similar) detects commit, applies updated Helm chart to Kubernetes.
