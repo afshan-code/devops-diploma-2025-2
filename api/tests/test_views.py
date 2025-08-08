@@ -43,7 +43,7 @@ class BookAPITestCase(APITestCase):
             "author": "Updated Author",
             "isbn": "978-9-876543-21-0",
             # Convert date object to a string for the request
-            "published_date": self.book.published_date.strftime('%Y-%m-%d')
+            "published_date": "2024-05-15"
         }
         response = self.client.put(self.book_detail_url, updated_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
